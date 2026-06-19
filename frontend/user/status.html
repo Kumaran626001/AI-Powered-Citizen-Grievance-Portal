@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Complaints Status - Grievance Management System</title>
+    <meta name="description" content="Track live updates and resolution status of all registered public grievances.">
+    <link rel="stylesheet" href="../css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body style="background-color: var(--bg-color);">
+    <div class="tricolor-bar"></div>
+    <nav class="public-nav">
+        <div class="nav-brand">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/5/55/Emblem_of_India.svg" alt="Government Emblem">
+            <h1>GovConnect</h1>
+        </div>
+        <div class="hamburger" id="mobile-menu">
+            <i class="fas fa-bars"></i>
+        </div>
+        <ul class="nav-links-public" id="nav-menu">
+            <li><a href="../../index.html">Home</a></li>
+            <li><a href="submit.html">Submit Complaint</a></li>
+            <li><a href="status.html" style="color: var(--accent-color); border-bottom: 2px solid var(--accent-color);">All Complaints Status</a></li>
+            <li><a href="../admin/login.html" class="btn-login"><i class="fas fa-lock"></i> Admin Login</a></li>
+        </ul>
+    </nav>
+
+    <div class="submit-container" style="max-width: 1000px;">
+        <div class="form-card" style="animation: fadeIn 0.5s ease-out;">
+            <div style="text-align: center; margin-bottom: 2rem;">
+                <h2 style="font-size: 2rem;">Public Grievance Status Tracker</h2>
+                <p style="color: var(--text-secondary);">Real-time updates on all submitted complaints</p>
+            </div>
+            
+            <div class="table-container">
+                <div class="table-controls" style="display:flex; flex-wrap:wrap; gap:0.75rem; margin-bottom: 2rem;">
+                    <input type="text" id="searchBox" placeholder="Search by Ticket or Keyword..." class="search-input" style="flex:1; min-width:200px;">
+                    <select id="filterDistrict" class="filter-select">
+                        <option value="">All Districts</option>
+                    </select>
+                    <select id="filterCity" class="filter-select" disabled>
+                        <option value="">All Cities/Towns</option>
+                    </select>
+                    <select id="filterCategory" class="filter-select">
+                        <option value="">All Categories</option>
+                        <option value="Water">Water Supply</option>
+                        <option value="Electricity">Electricity</option>
+                        <option value="Public Works">Public Works</option>
+                        <option value="Sanitation">Sanitation</option>
+                        <option value="Health">Health</option>
+                        <option value="Transport">Transport</option>
+                    </select>
+                    <select id="filterUrgency" class="filter-select">
+                        <option value="">All Urgencies</option>
+                        <option value="Low">Low</option>
+                        <option value="Medium">Medium</option>
+                        <option value="High">High</option>
+                        <option value="Critical">Critical</option>
+                    </select>
+                    <select id="filterStatus" class="filter-select">
+                        <option value="">All Statuses</option>
+                        <option value="Pending">Pending</option>
+                        <option value="In Progress">In Progress</option>
+                        <option value="Resolved">Resolved</option>
+                    </select>
+                    <button id="clearFiltersBtn" class="btn-outline" style="border-radius:6px; padding:0.5rem 1rem; color: var(--danger); border-color: rgba(244, 63, 94, 0.2);"><i class="fas fa-times-circle"></i> Clear Filters</button>
+                </div>
+
+                <div class="data-table-wrapper">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Ticket ID</th>
+                                <th>Citizen Name</th>
+                                <th>District</th>
+                                <th>City/Town</th>
+                                <th>Category</th>
+                                <th>Urgency</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody id="publicComplaintsTableBody">
+                            <tr><td colspan="7" style="text-align:center">Loading complaints...</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/app.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            loadPublicComplaints();
+            // Refresh data automatically every 30 seconds to show live updates when admin updates status
+            setInterval(loadPublicComplaints, 30000);
+        });
+    </script>
+</body>
+</html>

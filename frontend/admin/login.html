@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Login - Grievance Management System</title>
+    <meta name="description" content="Secure administrative login portal for the Citizen Grievance Management System.">
+    <link rel="stylesheet" href="../css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="login-body">
+    <div class="tricolor-bar"></div>
+    <nav class="public-nav">
+        <div class="nav-brand">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/5/55/Emblem_of_India.svg" alt="Government Emblem">
+            <h1>GovConnect</h1>
+        </div>
+        <div class="hamburger" id="mobile-menu">
+            <i class="fas fa-bars"></i>
+        </div>
+        <ul class="nav-links-public" id="nav-menu">
+            <li><a href="../../index.html">Home</a></li>
+            <li><a href="../user/submit.html">Submit Complaint</a></li>
+            <li><a href="../user/status.html">All Complaints Status</a></li>
+            <li><a href="login.html" class="btn-login"><i class="fas fa-lock"></i> Admin Login</a></li>
+        </ul>
+    </nav>
+    <!-- Background Animation Elements (Dynamic Floating Shapes) & Login Card Wrapped -->
+    <div class="login-wrapper">
+        <div class="falling-balls">
+            <span class="ball" style="--delay: 0s; --size: 40px; --left: 10%; --radius: 50%; --speed: 12s;"></span>
+            <span class="ball" style="--delay: 2s; --size: 80px; --left: 30%; --radius: 15px; --speed: 16s;"></span>
+            <span class="ball" style="--delay: 1s; --size: 25px; --left: 50%; --radius: 5px; --speed: 10s;"></span>
+            <span class="ball" style="--delay: 4s; --size: 60px; --left: 70%; --radius: 50%; --speed: 14s;"></span>
+            <span class="ball" style="--delay: 3s; --size: 30px; --left: 85%; --radius: 10px; --speed: 11s;"></span>
+            <span class="ball" style="--delay: 5s; --size: 55px; --left: 20%; --radius: 30% 70% 70% 30% / 30% 30% 70% 70%; --speed: 18s;"></span>
+            <span class="ball" style="--delay: 0.5s; --size: 70px; --left: 90%; --radius: 50%; --speed: 13s;"></span>
+        </div>
+
+        <div class="login-container glass-card">
+            <div class="login-header">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/5/55/Emblem_of_India.svg" alt="Government Emblem" class="emblem">
+                <h2>Grievance Management System</h2>
+                <p>GovConnect Portal</p>
+            </div>
+            <form id="loginForm" class="login-form">
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" name="username" required placeholder="Enter admin username">
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" required placeholder="Enter password">
+                </div>
+                <button type="submit" class="btn-primary" style="width: 100%;">Login to Dashboard</button>
+                <p id="loginError" class="error-msg"></p>
+            </form>
+            <div style="text-align:center; margin-top: 1.5rem;">
+                <a href="../../index.html" class="back-home-link">← Back to Home</a>
+            </div>
+        </div>
+    </div>
+    <script src="../js/app.js"></script>
+</body>
+</html>

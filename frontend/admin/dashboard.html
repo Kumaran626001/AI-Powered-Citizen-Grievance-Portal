@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Grievance Management System</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="admin-body">
+    <div class="tricolor-bar"></div>
+    <div class="sidebar">
+        <div class="sidebar-header">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/5/55/Emblem_of_India.svg" alt="Emblem" class="sidebar-logo">
+            <h2>GovConnect</h2>
+        </div>
+        <ul class="nav-links">
+            <li><a href="dashboard.html" class="active"><i class="fas fa-home"></i> Home Dashboard</a></li>
+            <li><a href="complaints.html"><i class="fas fa-list"></i> All Complaints</a></li>
+            <li><a href="queue.html"><i class="fas fa-exclamation-triangle"></i> Priority Queue</a></li>
+            <li><a href="#" id="logoutBtn"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+        </ul>
+    </div>
+    
+    <div class="main-content">
+        <header class="top-header">
+            <div style="display: flex; align-items: center; gap: 1.5rem;">
+                <div class="admin-hamburger" id="admin-hamburger">
+                    <i class="fas fa-bars"></i>
+                </div>
+                <div class="header-title">
+                    <h1>Overview Dashboard</h1>
+                    <p>Welcome back, GovConnect</p>
+                </div>
+            </div>
+            <div class="user-profile">
+                <i class="fas fa-user-circle"></i> GovConnect
+            </div>
+        </header>
+
+        <div class="dashboard-cards">
+            <div class="card">
+                <div class="card-icon blue"><i class="fas fa-folder-open"></i></div>
+                <div class="card-info">
+                    <h3>Total Complaints</h3>
+                    <p class="card-value" id="totalComplaints">0</p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-icon red"><i class="fas fa-fire"></i></div>
+                <div class="card-info">
+                    <h3>High Priority</h3>
+                    <p class="card-value" id="highPriority">0</p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-icon green"><i class="fas fa-check-circle"></i></div>
+                <div class="card-info">
+                    <h3>Resolved</h3>
+                    <p class="card-value" id="resolvedComplaints">0</p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-icon yellow"><i class="fas fa-clock"></i></div>
+                <div class="card-info">
+                    <h3>Pending</h3>
+                    <p class="card-value" id="pendingComplaints">0</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="charts-container">
+            <div class="chart-box">
+                <h3>Complaints by District</h3>
+                <div class="chart-wrapper">
+                    <canvas id="districtChart"></canvas>
+                </div>
+            </div>
+            <div class="chart-box">
+                <h3>Complaints by City/Town</h3>
+                <div class="chart-wrapper">
+                    <canvas id="cityChart"></canvas>
+                </div>
+            </div>
+            <div class="chart-box">
+                <h3>Complaints by Category</h3>
+                <div class="chart-wrapper">
+                    <canvas id="categoryChart"></canvas>
+                </div>
+            </div>
+            <div class="chart-box" style="display:flex; flex-direction:column; height:350px;">
+                <h3>High Complaint Regions</h3>
+                <div id="highComplaintRegionsList" style="flex:1; overflow-y:auto; margin-top:1rem; padding-right:0.5rem;">
+                    <div style="color:var(--text-secondary); text-align:center; padding:2rem;">Loading region stats...</div>
+                </div>
+            </div>
+            <div class="chart-box full-width">
+                <h3>Monthly Trend</h3>
+                <div class="chart-wrapper">
+                    <canvas id="trendChart"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="../js/app.js"></script>
+    <script>
+        // Check Auth
+        if (!sessionStorage.getItem("admin_id")) {
+            window.location.href = "login.html";
+        }
+        document.addEventListener("DOMContentLoaded", () => {
+            loadDashboardStats();
+            loadCharts();
+        });
+    </script>
+</body>
+</html>

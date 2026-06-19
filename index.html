@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grievance Management System - Home</title>
+    <meta name="description" content="AI-Powered Citizen Grievance Portal for lodging and tracking public complaints in real time with automatic ML priority scoring.">
+    <link rel="stylesheet" href="frontend/css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="tricolor-bar"></div>
+    <nav class="public-nav">
+        <div class="nav-brand">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/5/55/Emblem_of_India.svg" alt="Government Emblem">
+            <h1>GovConnect</h1>
+        </div>
+        <div class="hamburger" id="mobile-menu">
+            <i class="fas fa-bars"></i>
+        </div>
+        <ul class="nav-links-public" id="nav-menu">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="frontend/user/submit.html">Submit Complaint</a></li>
+            <li><a href="frontend/user/status.html">All Complaints Status</a></li>
+            <li><a href="frontend/admin/login.html" class="btn-login"><i class="fas fa-lock"></i> Admin Login</a></li>
+        </ul>
+    </nav>
+
+    <section class="hero">
+        <h1>AI-Powered Citizen Grievance Portal</h1>
+        <p>A smart, efficient, and transparent way to submit and track public grievances. Our AI analyzes urgency and categorizes complaints for faster resolution.</p>
+        <div class="hero-buttons">
+            <a href="frontend/user/submit.html" class="btn-primary hero-btn btn-primary-glow">Lodge a Grievance <i class="fas fa-arrow-right"></i></a>
+            <a href="frontend/user/status.html" class="btn-outline hero-btn">Track Status</a>
+        </div>
+    </section>
+
+    <section class="features-grid">
+        <div class="feature-card">
+            <i class="fas fa-robot feature-icon"></i>
+            <h3>Smart Routing</h3>
+            <p>Our AI model automatically categorizes your complaint and routes it to the exact department responsible.</p>
+        </div>
+        <div class="feature-card">
+            <i class="fas fa-tachometer-alt feature-icon"></i>
+            <h3>Priority Queue</h3>
+            <p>Critical issues like water supply bursts or power outages are flagged with high priority for immediate action.</p>
+        </div>
+        <div class="feature-card">
+            <i class="fas fa-chart-pie feature-icon"></i>
+            <h3>Live Tracking</h3>
+            <p>Citizens and administrators have access to real-time dashboards detailing resolution statuses.</p>
+        </div>
+    </section>
+    <script src="frontend/js/app.js"></script>
+</body>
+</html>

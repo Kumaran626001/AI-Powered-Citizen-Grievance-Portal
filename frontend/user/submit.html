@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Submit Grievance - Citizen Portal</title>
+    <meta name="description" content="Submit your public grievances online. Our AI-enabled portal automatically categorizes and prioritizes citizen issues.">
+    <link rel="stylesheet" href="../css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="citizen-body">
+    <div class="tricolor-bar"></div>
+    <nav class="public-nav">
+        <div class="nav-brand">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/5/55/Emblem_of_India.svg" alt="Government Emblem">
+            <h1>GovConnect</h1>
+        </div>
+        <div class="hamburger" id="mobile-menu">
+            <i class="fas fa-bars"></i>
+        </div>
+        <ul class="nav-links-public" id="nav-menu">
+            <li><a href="../../index.html">Home</a></li>
+            <li><a href="submit.html" style="color: var(--accent-color); border-bottom: 2px solid var(--accent-color);">Submit Complaint</a></li>
+            <li><a href="status.html">All Complaints Status</a></li>
+            <li><a href="../admin/login.html" class="btn-login"><i class="fas fa-lock"></i> Admin Login</a></li>
+        </ul>
+    </nav>
+    <div class="submit-container">
+        <div class="form-card">
+            <h2>Lodge a New Grievance</h2>
+            <p>Please provide accurate details to help us resolve your issue efficiently.</p>
+            <form id="complaintForm" class="complaint-form" enctype="multipart/form-data">
+                <div class="form-row">
+                    <div class="form-group half">
+                        <label for="citizen_name">Full Name</label>
+                        <input type="text" id="citizen_name" name="citizen_name" required>
+                    </div>
+                    <div class="form-group half">
+                        <label for="phone_number">Phone Number</label>
+                        <input type="tel" id="phone_number" name="phone_number" required pattern="[6-9][0-9]{9}" title="Please enter a valid 10-digit phone number starting with 6, 7, 8, or 9.">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group half">
+                        <label for="district">District</label>
+                        <select id="district" name="district" required>
+                            <option value="">Select District</option>
+                            <option value="Ariyalur">Ariyalur</option>
+                            <option value="Chengalpattu">Chengalpattu</option>
+                            <option value="Chennai">Chennai</option>
+                            <option value="Coimbatore">Coimbatore</option>
+                            <option value="Cuddalore">Cuddalore</option>
+                            <option value="Dharmapuri">Dharmapuri</option>
+                            <option value="Dindigul">Dindigul</option>
+                            <option value="Erode">Erode</option>
+                            <option value="Kallakurichi">Kallakurichi</option>
+                            <option value="Kanchipuram">Kanchipuram</option>
+                            <option value="Kanyakumari">Kanyakumari</option>
+                            <option value="Karur">Karur</option>
+                            <option value="Krishnagiri">Krishnagiri</option>
+                            <option value="Madurai">Madurai</option>
+                            <option value="Mayiladuthurai">Mayiladuthurai</option>
+                            <option value="Nagapattinam">Nagapattinam</option>
+                            <option value="Namakkal">Namakkal</option>
+                            <option value="Nilgiris">Nilgiris</option>
+                            <option value="Perambalur">Perambalur</option>
+                            <option value="Pudukkottai">Pudukkottai</option>
+                            <option value="Ramanathapuram">Ramanathapuram</option>
+                            <option value="Ranipet">Ranipet</option>
+                            <option value="Salem">Salem</option>
+                            <option value="Sivaganga">Sivaganga</option>
+                            <option value="Tenkasi">Tenkasi</option>
+                            <option value="Thanjavur">Thanjavur</option>
+                            <option value="Theni">Theni</option>
+                            <option value="Thoothukudi">Thoothukudi</option>
+                            <option value="Tiruchirappalli">Tiruchirappalli</option>
+                            <option value="Tirunelveli">Tirunelveli</option>
+                            <option value="Tirupathur">Tirupathur</option>
+                            <option value="Tiruppur">Tiruppur</option>
+                            <option value="Tiruvallur">Tiruvallur</option>
+                            <option value="Tiruvannamalai">Tiruvannamalai</option>
+                            <option value="Tiruvarur">Tiruvarur</option>
+                            <option value="Vellore">Vellore</option>
+                            <option value="Viluppuram">Viluppuram</option>
+                            <option value="Virudhunagar">Virudhunagar</option>
+                        </select>
+                    </div>
+                    <div class="form-group half">
+                        <label for="city">City/Town</label>
+                        <select id="city" name="city" required disabled>
+                            <option value="">Select City/Town</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="specific_location">Specific Location</label>
+                    <input type="text" id="specific_location" name="specific_location" placeholder="Enter exact street, landmark, ward, or nearby location" required>
+                </div>
+                <div class="form-group">
+                    <label for="description">Grievance Description</label>
+                    <textarea id="description" name="description" rows="5" required placeholder="Describe your issue in detail..."></textarea>
+                </div>
+                <div class="form-group file-upload" id="fileUploadContainer">
+                    <i class="fas fa-cloud-upload-alt file-upload-icon"></i>
+                    <label for="evidence" id="fileUploadLabel">Upload Evidence (Image/PDF)</label>
+                    <span class="file-upload-subtext" id="fileUploadSubtext">Optional - Drag and drop or click to upload</span>
+                    <div id="imagePreviewContainer" class="hidden" style="margin-top: 1rem; text-align: center; width: 100%; pointer-events: none;">
+                        <img id="imagePreview" src="" alt="Evidence Preview" style="max-width: 100%; max-height: 150px; border-radius: 8px; border: 1px solid var(--border-color); box-shadow: var(--shadow-sm);">
+                    </div>
+                    <input type="file" id="evidence" name="evidence" accept="image/*,.pdf">
+                </div>
+                <button type="submit" class="btn-primary full-width" id="submitBtn">Submit Grievance</button>
+            </form>
+            
+            <div id="submissionResult" class="submission-result hidden">
+                <div class="success-icon">✓</div>
+                <h3>Grievance Submitted Successfully</h3>
+                <p>Your Ticket ID: <strong id="resultTicketId"></strong></p>
+                <div class="ai-analysis">
+                    <h4>AI Initial Analysis</h4>
+                    <p>Predicted Category: <span id="resCategory" class="badge"></span></p>
+                    <p>Urgency Level: <span id="resUrgency" class="badge"></span></p>
+                    <p>Urgency Level Score: <span id="resUrgencyScore" class="badge"></span></p>
+                </div>
+                <div id="resEvidenceContainer" class="hidden" style="margin-top: 1.5rem; text-align: left; background: rgba(5, 13, 26, 0.2); border: 1px solid var(--border-color); padding: 1.25rem; border-radius: 8px;">
+                    <h4 style="font-size: 0.9rem; text-transform: uppercase; color: var(--text-secondary); margin-bottom: 0.75rem; letter-spacing: 0.05em; font-family: 'Outfit';">Submitted Evidence</h4>
+                    <div id="resEvidenceContent" style="display: flex; justify-content: center; align-items: center; min-height: 100px;"></div>
+                </div>
+                <button onclick="location.reload()" class="btn-outline mt-3">Submit Another</button>
+            </div>
+        </div>
+    </div>
+    <script src="../js/app.js"></script>
+</body>
+</html>
